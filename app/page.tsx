@@ -6,8 +6,8 @@ import Image from 'next/image';
 
 const usePostStore = create((set) => ({
   posts: [],
-  addPost: (post) => set((state) => ({ posts: [post, ...state.posts] })),
-  removePost: (id) => set((state) => ({ posts: state.posts.filter((p) => p.id !== id) })),
+  addPost: (post: any) => set((state: any) => ({ posts: [post, ...state.posts] })),
+  removePost: (id: any) => set((state: any) => ({ posts: state.posts.filter((p: any) => p.id !== id) })),
 }));
 
 export default function Home() {
@@ -17,11 +17,11 @@ export default function Home() {
   const [image, setImage] = useState(null);
   const [text, setText] = useState('');
 
-  const handleImageChange = (e) => {
+  const handleImageChange = (e: any) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
-      reader.onloadend = () => setImage(reader.result);
+      reader.onloadend = () => setImage(reader.result as any);
       reader.readAsDataURL(file);
     }
   };
